@@ -1,6 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:pdl/home.dart';
+import 'package:pdl/Auth.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       splash: 'assets/image.png',
       splashIconSize: double.infinity,
       duration: 5000,
-      nextScreen: const Home(),
+      nextScreen: const Auth(),
       backgroundColor: const Color(0xFF32BFAE),
       splashTransition: SplashTransition.scaleTransition,
     ));
