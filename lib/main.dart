@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     debugShowCheckedModeBanner:false;
     return MaterialApp(
-      debugShowCheckedModeBanner:false;
+      debugShowCheckedModeBanner:false,
         home: AnimatedSplashScreen(
       splash: 'assets/image.png',
       splashIconSize: double.infinity,
