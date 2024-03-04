@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pdl/loginpage.dart'; 
+import 'package:pdl/signuppage.dart';
 
 class Auth extends StatelessWidget {
   const Auth({Key? key}) : super(key: key); 
@@ -45,6 +46,10 @@ class Auth extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Add your sign up logic here
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder:(context) => SignUpPage()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(260, 50),

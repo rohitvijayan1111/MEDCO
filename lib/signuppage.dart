@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pdl/home.dart';
-import 'package:pdl/signuppage.dart';
+import 'package:pdl/loginpage.dart'; // Import the LoginPage
 
-class LoginPage extends StatelessWidget {
+class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: Text('Sign Up'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(30.0),
@@ -22,7 +21,7 @@ class LoginPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
                 decoration: InputDecoration(
-                  hintText: 'Username',
+                  hintText: 'Email',
                   border: InputBorder.none,
                 ),
               ),
@@ -42,26 +41,28 @@ class LoginPage extends StatelessWidget {
                 obscureText: true,
               ),
             ),
-            SizedBox(height: 10),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  // Add your forgot password logic here
-                },
-                child: Text(
-                  'Forgot Password?',
-                  style: TextStyle(color: Colors.blue),
+            SizedBox(height: 20),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey[200],
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  hintText: 'Confirm Password',
+                  border: InputBorder.none,
                 ),
+                obscureText: true,
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                // Navigate to home page
-                Navigator.pushReplacement(
+                // Add your sign-up logic here
+                Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(builder: (context) => LoginPage()), // Navigate to LoginPage after registration
                 );
               },
               style: ButtonStyle(
@@ -76,21 +77,7 @@ class LoginPage extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-                child: Text('Login', style: TextStyle(fontSize: 18, color: Colors.white)),
-              ),
-            ),
-            SizedBox(height: 20),
-            GestureDetector(
-              onTap: () {
-                // Navigate to signup page
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SignUpPage()),
-                );
-              },
-              child: Text(
-                'Don\'t have an account? Sign up',
-                style: TextStyle(color: Colors.blue),
+                child: Text('Register', style: TextStyle(fontSize: 18, color: Colors.white)),
               ),
             ),
           ],
@@ -99,4 +86,3 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
