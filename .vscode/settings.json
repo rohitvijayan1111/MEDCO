@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "D:/PROJECTS/FLUTTER/pdl/linux"
+    "cmake.sourceDirectory": "D:/PROJECTS/FLUTTER/pdl/linux",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
