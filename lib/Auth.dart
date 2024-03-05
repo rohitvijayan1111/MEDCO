@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pdl/loginpage.dart'; 
+import 'package:pdl/loginpage.dart';
 import 'package:pdl/signuppage.dart';
 
 class Auth extends StatelessWidget {
-  const Auth({Key? key}) : super(key: key); 
+  const Auth({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,50 +14,50 @@ class Auth extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image(image: AssetImage('assets/logo1.png')),
-              SizedBox(height: 30),
-              Text(
+              const Image(image: AssetImage('assets/logo1.png')),
+              const SizedBox(height: 30),
+              const Text(
                 "Let's get Started!",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 "Login in to enjoy the features we've provided, and stay healthy!",
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.grey, fontSize: 16),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(260, 50),
-                  textStyle: TextStyle(fontSize: 24),
-                  backgroundColor: Color(0xFF32BFAE),
+                  minimumSize: const Size(260, 50),
+                  textStyle: const TextStyle(fontSize: 24),
+                  backgroundColor: const Color(0xFF32BFAE),
                   foregroundColor: Colors.white,
                 ),
-                child: Text("Login"),
+                child: const Text("Login"),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   // Add your sign up logic here
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder:(context) => SignUpPage()),
+                    MaterialPageRoute(builder: (context) => const SignUpPage()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(260, 50),
-                  textStyle: TextStyle(fontSize: 24),
-                  backgroundColor: Color(0xFF32BFAE),
+                  minimumSize: const Size(260, 50),
+                  textStyle: const TextStyle(fontSize: 24),
+                  backgroundColor: const Color(0xFF32BFAE),
                   foregroundColor: Colors.white,
                 ),
-                child: Text("Sign Up"),
+                child: const Text("Sign Up"),
               ),
             ],
           ),

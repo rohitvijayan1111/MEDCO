@@ -3,11 +3,12 @@ import 'package:pdl/home.dart';
 import 'package:pdl/signuppage.dart';
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Text('Login'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(30.0),
@@ -19,43 +20,43 @@ class LoginPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.grey[200],
               ),
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Username',
                   border: InputBorder.none,
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.grey[200],
               ),
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Password',
                   border: InputBorder.none,
                 ),
                 obscureText: true,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
                 onPressed: () {
                   // Add your forgot password logic here
                 },
-                child: Text(
+                child: const Text(
                   'Forgot Password?',
                   style: TextStyle(color: Colors.blue),
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Navigate to home page
@@ -68,27 +69,28 @@ class LoginPage extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
                   (Set<MaterialState> states) {
                     if (states.contains(MaterialState.hovered)) {
-                      return Color(0xFF32BFAE);
+                      return const Color(0xFF32BFAE);
                     }
-                    return Color(0xFF32BFAE);
+                    return const Color(0xFF32BFAE);
                   },
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-                child: Text('Login', style: TextStyle(fontSize: 18, color: Colors.white)),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                child: Text('Login',
+                    style: TextStyle(fontSize: 18, color: Colors.white)),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             GestureDetector(
               onTap: () {
                 // Navigate to signup page
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SignUpPage()),
+                  MaterialPageRoute(builder: (context) => const SignUpPage()),
                 );
               },
-              child: Text(
+              child: const Text(
                 'Don\'t have an account? Sign up',
                 style: TextStyle(color: Colors.blue),
               ),
@@ -99,4 +101,3 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
