@@ -12,7 +12,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    debugShowCheckedModeBanner:false;
     return MaterialApp(
+      debugShowCheckedModeBanner:false,
         home: AnimatedSplashScreen(
       splash: 'assets/image.png',
       splashIconSize: double.infinity,
@@ -23,3 +25,4 @@ class MyApp extends StatelessWidget {
     ));
   }
 }
+
