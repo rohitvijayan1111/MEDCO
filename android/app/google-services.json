@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "555843875907",
+    "project_id": "medco-e2ba4",
+    "storage_bucket": "medco-e2ba4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555843875907:android:1c31728f566fb7cbbb50f6",
+        "android_client_info": {
+          "package_name": "com.example.pdl"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqYtH_2n8BPXvY9JtggICJFGnDlTkTSyE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

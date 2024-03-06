@@ -1,8 +1,12 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:pdl/Auth.dart';
+import 'package:pdl/firebase_options.dart';
 
-void main() {
+main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -12,17 +16,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    debugShowCheckedModeBanner:false;
+    // ignore: unused_label
+    debugShowCheckedModeBanner:
+    false;
     return MaterialApp(
-      debugShowCheckedModeBanner:false,
+        debugShowCheckedModeBanner: false,
         home: AnimatedSplashScreen(
-      splash: 'assets/image.png',
-      splashIconSize: double.infinity,
-      duration: 5000,
-      nextScreen: const Auth(),
-      backgroundColor: const Color(0xFF32BFAE),
-      splashTransition: SplashTransition.scaleTransition,
-    ));
+          splash: 'assets/image.png',
+          splashIconSize: double.infinity,
+          duration: 5000,
+          nextScreen: const Auth(),
+          backgroundColor: const Color(0xFF32BFAE),
+          splashTransition: SplashTransition.scaleTransition,
+        ));
   }
 }
-
