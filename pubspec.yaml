@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   firebase_auth: ^4.5.0
 
+
+
   cupertino_icons: ^1.0.2
   flutter_splash_screen: ^3.0.0
   animated_splash_screen: ^1.3.0
@@ -56,5 +58,15 @@ flutter:
     - assets/doctor8.png
     - assets/doctor9.jpg
     - assets/doctor10.png
+    - assets/hospital1.jpeg
+    - assets/hospital2.jpeg
+    - assets/hospital3.jpeg
+    - assets/hospital4.jpg
+    - assets/hospital5.jpeg
+    - assets/hospital6.jpg
+    - assets/hospital7.jpg
+    - assets/hospital8.jpg
+    - assets/hospital9.jpg
+    - assets/hospital10.jpg
 
   
