@@ -19,13 +19,61 @@ class Doctor {
 class DoctorsPage extends StatelessWidget {
   final List<Doctor> doctors = [
     Doctor(
-      name: 'Dr. John Doe',
+      name: 'Dr. Swetha',
       specialist: 'Cardiologist',
-      hospital: 'City Hospital',
+      hospital: 'BLK Super Speciality Hospital',
       rating: 4.5,
       imageUrl: 'assets/doctor1.png',
     ),
-    // Add more doctors as needed
+    Doctor(
+      name: 'Dr. Veeraragavan',
+      specialist: 'Pediatrician',
+      hospital: 'Fortis Hospitals Group',
+      rating: 4.8,
+      imageUrl: 'assets/doctor2.png',
+    ),
+    Doctor(
+      name: 'Dr. Sheethal',
+      specialist: 'Dermatologist',
+      hospital: 'Artemis Hospital',
+      rating: 4.3,
+      imageUrl: 'assets/doctor3.png',
+    ),
+    Doctor(
+      name: 'Dr. Kishore',
+      specialist: 'Ophthalmologist',
+      hospital: 'Wockhardt Hospital',
+      rating: 4.6,
+      imageUrl: 'assets/doctor4.png',
+    ),
+    Doctor(
+      name: 'Dr. Meghna Shreeharan',
+      specialist: 'Orthopedic Surgeon',
+      hospital: 'Narayana Health Hospital',
+      rating: 4.9,
+      imageUrl: 'assets/doctor5.png',
+    ),
+    Doctor(
+      name: 'Dr. Arjun',
+      specialist: 'Neurologist',
+      hospital: 'Columbia Asia Hospital',
+      rating: 4.7,
+      imageUrl: 'assets/doctor6.png',
+    ),
+    Doctor(
+      name: 'Dr. Saraah Goshal',
+      specialist: 'Psychiatrist',
+      hospital: 'VS Hospital',
+      rating: 4.2,
+      imageUrl: 'assets/doctor7.png',
+    ),
+    Doctor(
+      name: 'Dr. Meera Rajesh',
+      specialist: 'Gynecologist',
+      hospital: 'Max Super Speciality Hospital',
+      rating: 4.4,
+      imageUrl: 'assets/doctor8.png',
+    ),
   ];
 
   @override
