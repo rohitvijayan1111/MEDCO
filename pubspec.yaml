@@ -14,6 +14,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   flutter_splash_screen: ^3.0.0
+  animated_splash_screen: ^1.3.0
   get: ^4.6.6
   image_picker: ^1.0.7
   firebase_core: ^2.25.5
@@ -40,5 +41,9 @@ flutter:
     - assets/schedule.png
     - assets/profile.png
     - assets/chat.png
+    - assets/doctors.png
+    - assets/hospital.png
+    - assets/ambulance.png
+    - assets/diagonisis.png
 
   
