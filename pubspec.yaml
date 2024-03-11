@@ -11,12 +11,14 @@ dependencies:
   flutter:
     sdk: flutter
   firebase_auth: ^4.5.0
-  tflite_flutter: ^0.10.4 
+  tflite_flutter: ^0.10.4
   cupertino_icons: ^1.0.2
   flutter_splash_screen: ^3.0.0
   get: ^4.6.6
   image_picker: ^1.0.7
   firebase_core: ^2.25.5
+  animated_splash_screen: ^1.3.0 
+  loading_animation_widget:
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -33,6 +35,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/diabetes_model.tflite
     - assets/icon.png
     - assets/image.png
     - assets/logo1.png
@@ -40,5 +43,6 @@ flutter:
     - assets/schedule.png
     - assets/profile.png
     - assets/chat.png
-
+    - assets/photoresult.png
+    - assets/result_doctor.png
   

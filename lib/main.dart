@@ -1,8 +1,10 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:pdl/Auth.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:pdl/diabetes.dart';
 import 'package:pdl/firebase_options.dart';
+import 'package:pdl/result.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,23 +13,33 @@ main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_label
-    debugShowCheckedModeBanner:
-    false;
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: AnimatedSplashScreen(
-          splash: 'assets/image.png',
-          splashIconSize: double.infinity,
-          duration: 5000,
-          nextScreen: const Auth(),
-          backgroundColor: const Color(0xFF32BFAE),
-          splashTransition: SplashTransition.scaleTransition,
-        ));
+      debugShowCheckedModeBanner: false,
+      home: Stack(
+        children: [
+          AnimatedSplashScreen(
+            splash: 'assets/image.png',
+            splashIconSize: double.infinity,
+            duration: 5000,
+            nextScreen: const DiabetesDetect(),
+            backgroundColor: const Color(0xFF32BFAE),
+            splashTransition: SplashTransition.scaleTransition,
+          ),
+          Positioned.fill(
+            child: Align(
+              alignment: Alignment(0.0, 0.6),
+              child: LoadingAnimationWidget.staggeredDotsWave(
+                color: Colors.white,
+                size: 100,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
