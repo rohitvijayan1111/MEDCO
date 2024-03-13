@@ -3,8 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:pdl/firebase_options.dart';
-import 'package:pdl/result.dart';
 import 'package:pdl/Auth.dart';
+import 'package:pdl/loginpage.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
             splash: 'assets/image.png',
             splashIconSize: double.infinity,
             duration: 5000,
-            nextScreen: const Auth(),
+            nextScreen: AuthPage(),
             backgroundColor: const Color(0xFF32BFAE),
             splashTransition: SplashTransition.scaleTransition,
           ),
