@@ -1,11 +1,14 @@
 // ignore: file_names
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pdl/Components/MyTextField.dart';
 import 'package:pdl/Components/my_button.dart';
-import 'package:pdl/home.dart';
-import 'package:pdl/loginpage.dart';
+import 'package:pdl/Doctor%20Pages/doctordetails.dart';
+import 'package:pdl/Patient%20Pages/home.dart';
+import 'package:pdl/Common/Authentication/loginpage.dart';
+import 'package:pdl/Patient%20Pages/patientdetails.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -16,6 +19,7 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+  final roleController = TextEditingController();
   void wrongEmailMessage(String s) {
     showDialog(
         context: context,
@@ -34,16 +38,21 @@ class _SignUpPageState extends State<SignUpPage> {
             child: CircularProgressIndicator(),
           );
         });
-    FirebaseAuth.instance
-        .createUserWithEmailAndPassword(
-            email: usernameController.text, password: passwordController.text)
-        .then((value) {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: usernameController.text, password: passwordController.text);
       Navigator.pop(context);
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
-    }).onError((error, StackTrace) {
+      if (roleController.text.trim().toLowerCase() == 'patient') {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => PatientDetails()));
+      } else {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => DoctorDetails()));
+      }
+    } catch (error) {
+      Navigator.pop(context);
       wrongEmailMessage(error.toString().split("]").elementAt(1).trim());
-    });
+    }
   }
 
   @override
@@ -79,6 +88,11 @@ class _SignUpPageState extends State<SignUpPage> {
                   hintText: 'Password',
                   obscureText: true,
                 ),
+                SizedBox(height: 20),
+                MyTextField(
+                    controller: roleController,
+                    hintText: 'Role',
+                    obscureText: false),
                 const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),

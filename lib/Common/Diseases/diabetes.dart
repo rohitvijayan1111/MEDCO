@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pdl/home.dart';
-import 'package:pdl/result.dart';
+import 'package:pdl/Patient%20Pages/home.dart';
+import 'package:pdl/Common/Diseases/result.dart';
 import 'package:tflite_flutter/tflite_flutter.dart';
 
 class DiabetesDetect extends StatefulWidget {

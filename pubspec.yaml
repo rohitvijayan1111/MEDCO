@@ -19,6 +19,7 @@ dependencies:
   firebase_core: ^2.25.5
   firebase_auth: ^4.17.8
   loading_animation_widget:
+  cloud_firestore: ^4.15.9
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -72,5 +73,6 @@ flutter:
     - assets/hospital9.jpg
     - assets/hospital10.jpg
     - assets/logo_login.png
-
+    - assets/maledoc.jpg
+    - assets/femaledoc.jpeg
   

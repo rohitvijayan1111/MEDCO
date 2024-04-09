@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pdl/Components/MyTextField.dart';
 import 'package:pdl/Components/my_button.dart';
-import 'package:pdl/signuppage.dart';
+import 'package:pdl/Common/Authentication/signuppage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

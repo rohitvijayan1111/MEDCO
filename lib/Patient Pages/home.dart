@@ -1,14 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pdl/diabetes.dart';
-import 'package:pdl/doctorspage.dart';
-import 'package:pdl/ambulancepage.dart';
-import 'package:pdl/hospitalpage.dart';
+import 'package:pdl/Common/Diseases/diabetes.dart';
+import 'package:pdl/Patient%20Pages/doctorspage.dart';
+import 'package:pdl/Patient%20Pages/ambulancepage.dart';
+import 'package:pdl/Patient%20Pages/doctortile.dart';
+import 'package:pdl/Patient%20Pages/hospitalpage.dart';
+import 'package:pdl/Patient%20Pages/patientdoctorlistingpage.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
   void signUserOut() {
-    FirebaseAuth.instance.signOut();
+    if (FirebaseAuth.instance.currentUser != null) {
+      FirebaseAuth.instance.signOut();
+    } else {
+      print("No user signed in.");
+    }
   }
 
   @override
@@ -73,7 +79,7 @@ class HomePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => DoctorsPage()),
+                                builder: (context) => PatientDoctorListing()),
                           );
                         },
                       ),
@@ -187,6 +193,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
+                DoctorsList(),
                 // Add your list of top doctors here
               ],
             ),
