@@ -1,14 +1,17 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pdl/Common/Diseases/diabetes.dart';
-import 'package:pdl/Patient%20Pages/doctorspage.dart';
 import 'package:pdl/Patient%20Pages/ambulancepage.dart';
 import 'package:pdl/Patient%20Pages/doctortile.dart';
 import 'package:pdl/Patient%20Pages/hospitalpage.dart';
 import 'package:pdl/Patient%20Pages/patientdoctorlistingpage.dart';
+import 'package:pdl/Patient%20Pages/schedule.dart';
+import 'package:pdl/Patient%20Pages/LearnmorePage.dart';
+import 'package:pdl/Patient%20Pages/ProfilePage.dart'; // Import the ProfilePage
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key});
+
   void signUserOut() {
     if (FirebaseAuth.instance.currentUser != null) {
       FirebaseAuth.instance.signOut();
@@ -23,7 +26,9 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        actions: [IconButton(onPressed: signUserOut, icon: Icon(Icons.logout))],
+        actions: [
+          IconButton(onPressed: signUserOut, icon: Icon(Icons.logout))
+        ],
         title: Row(
           children: [
             Expanded(
@@ -37,9 +42,7 @@ class HomePage extends StatelessWidget {
             ),
             IconButton(
               icon: Icon(Icons.notifications),
-              onPressed: () {
-                // Handle notification tap
-              },
+              onPressed: () {},
               color: Color(0xFF32BFAE),
             ),
           ],
@@ -67,57 +70,58 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      HealthButton(
-                        iconAsset: 'assets/doctors.png',
-                        label: 'Doctors',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => PatientDoctorListing()),
-                          );
-                        },
-                      ),
-                      HealthButton(
-                        iconAsset: 'assets/hospital.png',
-                        label: 'Hospital',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HospitalPage()),
-                          );
-                        },
-                      ),
-                      HealthButton(
-                        iconAsset: 'assets/diagonisis.png',
-                        label: 'Diagnosis',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DiabetesDetect()),
-                          );
-                        },
-                      ),
-                      HealthButton(
-                        iconAsset: 'assets/ambulance.png',
-                        label: 'Ambulance',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AmbulancePage()),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    HealthButton(
+                      iconAsset: 'assets/doctors.png',
+                      label: 'Doctors',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PatientDoctorListing(),
+                          ),
+                        );
+                      },
+                    ),
+                    HealthButton(
+                      iconAsset: 'assets/hospital.png',
+                      label: 'Hospital',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HospitalPage(),
+                          ),
+                        );
+                      },
+                    ),
+                    HealthButton(
+                      iconAsset: 'assets/diagonisis.png',
+                      label: 'Diagnosis',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DiabetesDetect(),
+                          ),
+                        );
+                      },
+                    ),
+                    HealthButton(
+                      iconAsset: 'assets/ambulance.png',
+                      label: 'Ambulance',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AmbulancePage(),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
                 SizedBox(height: 10),
                 Row(
@@ -144,11 +148,17 @@ class HomePage extends StatelessWidget {
                             ),
                             SizedBox(height: 10),
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LearnMorePage(),
+                                  ),
+                                );
+                              },
                               child: Text('Learn More'),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    Color.fromARGB(255, 49, 196, 181),
+                                backgroundColor: Color(0xFF32BFAE),
                               ),
                             ),
                           ],
@@ -181,7 +191,8 @@ class HomePage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => DoctorsPage()),
+                            builder: (context) => PatientDoctorListing(),
+                          ),
                         );
                       },
                       child: Text(
@@ -194,7 +205,6 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 DoctorsList(),
-                // Add your list of top doctors here
               ],
             ),
           ),
@@ -221,7 +231,28 @@ class HomePage extends StatelessWidget {
         ],
         currentIndex: 0,
         selectedItemColor: Color(0xFF32BFAE),
-        onTap: (int index) {},
+        onTap: (int index) {
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SchedulePage(userId: FirebaseAuth.instance.currentUser!.uid),
+              ),
+            );
+          } else if (index == 3) { // Navigate to ProfilePage when Profile icon is tapped
+          Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => ProfilePage(
+      userId: FirebaseAuth.instance.currentUser!.uid,
+      collectionName: 'Doctors', // Or 'Patients' based on the user type
+      isDoctor: true, // Or false based on the user type
+    ),
+  ),
+);
+
+          }
+        },
       ),
     );
   }
