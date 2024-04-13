@@ -1,12 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfilePage extends StatelessWidget {
   final String userId;
   final String collectionName;
   final bool isDoctor;
   final String? imageUrl;
-
   const ProfilePage({
     Key? key,
     required this.userId,
@@ -22,7 +23,10 @@ class ProfilePage extends StatelessWidget {
         title: Text('My Profile'),
       ),
       body: StreamBuilder<DocumentSnapshot>(
-        stream: FirebaseFirestore.instance.collection(collectionName).doc(userId).snapshots(),
+        stream: FirebaseFirestore.instance
+            .collection(collectionName)
+            .doc(userId)
+            .snapshots(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
@@ -33,8 +37,10 @@ class ProfilePage extends StatelessWidget {
             if (profileData == null) {
               return Center(child: Text('Error: Profile data not found'));
             }
-            final name = (profileData as Map<String, dynamic>)['name'] ?? 'Unknown';
-            final gender = (profileData as Map<String, dynamic>)['gender'] ?? 'Unknown';
+            final name =
+                (profileData as Map<String, dynamic>)['name'] ?? 'Unknown';
+            final gender =
+                (profileData as Map<String, dynamic>)['gender'] ?? 'Unknown';
             final defaultMaleImage = 'assets/maledoc.jpg';
             final defaultFemaleImage = 'assets/femaledoc.jpeg';
 
@@ -66,7 +72,9 @@ class ProfilePage extends StatelessWidget {
                       if (imageUrl == null)
                         CircleAvatar(
                           backgroundImage: AssetImage(
-                            gender == 'Male' ? defaultMaleImage : defaultFemaleImage,
+                            gender == 'Male'
+                                ? defaultMaleImage
+                                : defaultFemaleImage,
                           ),
                           radius: 40,
                         ),
@@ -76,7 +84,8 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           Text(
                             'Name: $name',
-                            style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 18.0, fontWeight: FontWeight.bold),
                           ),
                           Text(
                             'Gender: $gender',

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:pdl/firebase_options.dart';
 import 'package:pdl/Common/Authentication/Auth.dart';
-import 'package:pdl/Common/Authentication/loginpage.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
